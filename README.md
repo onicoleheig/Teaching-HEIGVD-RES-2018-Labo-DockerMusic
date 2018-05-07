@@ -107,11 +107,11 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
 | | *Insert your diagram here...* |
 |Question | Who is going to **send UDP datagrams** and **when**? |
-| | *Enter your response here...* |
+| | Every musicians, every seconds |
 |Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received? |
-| | *Enter your response here...* |
+| | The audotir, he have to display the message received, add the musician in an array if doesn't exist in it |
 |Question | What **payload** should we put in the UDP datagrams? |
-| | *Enter your response here...* |
+| | the payload will be the unique ID and the instrument that the musician plays |
 |Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures? |
 | | *Enter your response here...* |
 
@@ -121,21 +121,21 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic
 | ---  | ---
 |Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**?
-| | *Enter your response here...*
+| | JSON.stringify();
 |Question | What is **npm**?
-| | *Enter your response here...*
+| | is the node packet manager, that will install all packet that we need
 |Question | What is the `npm install` command and what is the purpose of the `--save` flag?
-| | *Enter your response here...*
+| | npm install will check the package.json and install all dependancies, the --save flag will set npm to include the package inside the dependencies section of the package.json
 |Question | How can we use the `https://www.npmjs.com/` web site?
-| | *Enter your response here...*
+| | we can use it to search any package we need to use them in our nodejs app !
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?
-| | *Enter your response here...*
+| | yes we can ! https://www.npmjs.com/package/uuid
 |Question | In Node.js, how can we execute a function on a **periodic** basis?
-| | *Enter your response here...*
+| | with setInterval(function, delay);
 |Question | In Node.js, how can we **emit UDP datagrams**?
-| | *Enter your response here...*
+| | with socket.send(...);
 |Question | In Node.js, how can we **access the command line arguments**?
-| | *Enter your response here...*
+| | with process.argv[n];
 
 
 ## Task 3: package the "musician" app in a Docker image
@@ -145,15 +145,15 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How do we **define and build our own Docker image**?
 | | *Enter your response here...*
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?
-| | *Enter your response here...*
+| | ENTRYPOINT ["node", "/opt/app/musician.js"]
 |Question | After building our Docker image, how do we use it to **run containers**?
 | | *Enter your response here...*
 |Question | How do we get the list of all **running containers**?
-| | *Enter your response here...*
+| | docker ps -a
 |Question | How do we **stop/kill** one running container?
-| | *Enter your response here...*
+| | docker stop [CONTAINER_NAME]
 |Question | How can we check that our running containers are effectively sending UDP datagrams?
-| | *Enter your response here...*
+| | with wireshark ?
 
 
 ## Task 4: implement an "auditor" Node.js application
@@ -161,7 +161,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic
 | ---  | ---
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group?
-| | *Enter your response here...*
+| | with socket.bind()
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**? 
 | | *Enter your response here...*
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting? 
