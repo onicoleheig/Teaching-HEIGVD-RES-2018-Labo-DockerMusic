@@ -32,9 +32,9 @@ setInterval(sendMessage, 1000);
 //send the message to the broadcast address
 function sendMessage() {
     var message = JSON.stringify(json);
-    console.log(' *' + SOUNDS[json.instrument] + '* - sent: ' + message);
+    console.log('♪♫ ' + SOUNDS[json.instrument] + ' ♪♫ message : ' + message);
 
-    socket.send(message, protocol.PORT, protocol.MULTICAST_ADDRESS, function (err, bytes) {
+    socket.send(message, 0, message.length, protocol.PORT, protocol.MULTICAST_ADDRESS, function (err, bytes) {
         if (err) throw err;
     });
 }
