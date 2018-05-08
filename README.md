@@ -113,7 +113,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | What **payload** should we put in the UDP datagrams? |
 | | the payload will be the unique ID and the instrument that the musician plays |
 |Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures? |
-| | *Enter your response here...* |
+| | An array on the auditor, this array will contains all musicians that played since last 5 seconds. The array content will be sent to the TCP server client |
 
 
 ## Task 2: implement a "musician" Node.js application
