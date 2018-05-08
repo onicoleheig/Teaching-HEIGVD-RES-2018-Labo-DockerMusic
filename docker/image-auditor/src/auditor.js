@@ -24,12 +24,11 @@ socket.on('message', function(msg, src) {
 
     for (var i = 0; i < musicians.length; i++) {
         if (json.uuid == musicians[i].uuid) {
-            musicians[i].activeSince = moment();
+            musicians[i].activeSince = json.activeSince;
             return;
         }
     }
 
-    json.activeSince = moment();
     musicians.push(json);
 });
 
