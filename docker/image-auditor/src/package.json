@@ -8,5 +8,7 @@
   },
   "author": "Olivier Nicole",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "moment": "^2.22.1"
+  }
 }

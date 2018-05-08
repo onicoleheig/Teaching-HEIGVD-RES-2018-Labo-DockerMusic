@@ -4,6 +4,8 @@ var dgram = require('dgram');
 
 var uuid = require('uuid');
 
+var moment = require('moment');
+
 var socket = dgram.createSocket('udp4');
 
 //sounds array
@@ -25,7 +27,7 @@ if(instrument === undefined){
 var json = {
     uuid: uuid(),
     instrument: process.argv[2],
-    activeSince: new Date().toString()
+    activeSince: moment()
 };
 
 console.log("Messages will be sent to : " + protocol.MULTICAST_ADDRESS + ":" + protocol.PORT);

@@ -9,6 +9,7 @@
   "author": "Olivier Nicole",
   "license": "ISC",
   "dependencies": {
+    "moment": "^2.22.1",
     "uuid": "3.2.1"
   }
 }

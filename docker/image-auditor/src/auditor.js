@@ -4,6 +4,8 @@ var dgram = require('dgram');
 
 var net = require('net');
 
+var moment = require('moment');
+
 var socket = dgram.createSocket('udp4');
 
 var musicians = [];
@@ -22,12 +24,12 @@ socket.on('message', function(msg, src) {
 
     for (var i = 0; i < musicians.length; i++) {
         if (json.uuid == musicians[i].uuid) {
-            musicians[i].activeSince = new Date();
+            musicians[i].activeSince = moment();
             return;
         }
     }
 
-    json.activeSince = new Date();
+    json.activeSince = moment();
     musicians.push(json);
 });
 
