@@ -27,6 +27,8 @@ var json = {
     instrument: process.argv[2]
 };
 
+console.log("Messages will be sent to : " + protocol.MULTICAST_ADDRESS + ":" + protocol.PORT);
+
 setInterval(sendMessage, 1000);
 
 //send the message to the broadcast address
