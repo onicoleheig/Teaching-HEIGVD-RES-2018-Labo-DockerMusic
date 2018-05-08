@@ -48,7 +48,7 @@ setInterval(checkInstruments, 1000);
 //delete musician if he doesn't play until some seconds (MAX_DELAY)
 function checkInstruments() {
     for (var i = 0; i < musicians.length; i++) {
-        if (new Date() - musicians[i].activeSince > protocol.MAX_DELAY) {
+        if (moment() - musicians[i].activeSince > protocol.MAX_DELAY) {
             console.log('Mucisian removed : ' + JSON.stringify(musicians[i]));
             musicians.splice(i, 1);
         }
