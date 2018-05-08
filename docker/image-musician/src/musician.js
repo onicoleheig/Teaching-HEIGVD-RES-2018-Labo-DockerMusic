@@ -24,7 +24,8 @@ if(instrument === undefined){
 
 var json = {
     uuid: uuid(),
-    instrument: process.argv[2]
+    instrument: process.argv[2],
+    activeSince: new Date().toString()
 };
 
 console.log("Messages will be sent to : " + protocol.MULTICAST_ADDRESS + ":" + protocol.PORT);
