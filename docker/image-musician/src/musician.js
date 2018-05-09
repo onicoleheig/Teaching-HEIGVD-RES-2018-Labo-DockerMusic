@@ -24,19 +24,21 @@ if(instrument === undefined){
     process.exit(1);
 }
 
-var json = {
-    uuid: uuid(),
-    instrument: process.argv[2],
-    activeSince: moment()
-};
-
 console.log("Messages will be sent to : " + protocol.MULTICAST_ADDRESS + ":" + protocol.PORT);
 
 setInterval(sendMessage, 1000);
 
+var json = {
+    uuid: uuid(),
+    instrument: process.argv[2]
+};
+
 //send the message to the broadcast address
 function sendMessage() {
+    json.activeSince = moment();
+    
     var message = JSON.stringify(json);
+    
     console.log('♪♫ ' + SOUNDS[json.instrument] + ' ♪♫ message : ' + message);
 
     socket.send(message, 0, message.length, protocol.PORT, protocol.MULTICAST_ADDRESS, function (err, bytes) {
