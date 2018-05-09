@@ -38,11 +38,10 @@ tcpServer.listen(protocol.PORT);
 console.log("TCP Server now running on port : " + protocol.PORT);
 
 tcpServer.on('connection', function (socket) {
+    checkInstruments()
     socket.write(JSON.stringify(musicians));
     socket.destroy();
 });
-
-setInterval(checkInstruments, 1000);
 
 //delete musician if he doesn't play until some seconds (MAX_DELAY)
 function checkInstruments() {
