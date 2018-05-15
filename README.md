@@ -163,10 +163,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group?
 | | with socket.bind()
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**? 
-| | var musicians = new Map; 
-musicians.set(uuid, value); 
-musicians.get(uuid); 
-musicians.delete(uuid);
+| | var musicians = new Map; <br/> musicians.set(uuid, value); <br/> musicians.get(uuid); <br/> musicians.delete(uuid);
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting? 
 | | https://momentjs.com/
 |Question | When and how do we **get rid of inactive players**? 
