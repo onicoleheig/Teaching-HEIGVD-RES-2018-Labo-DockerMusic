@@ -143,17 +143,17 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic
 | ---  | ---
 |Question | How do we **define and build our own Docker image**?
-| | *Enter your response here...*
+| | $ docker build -t res/musician .
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?
 | | ENTRYPOINT ["node", "/opt/app/musician.js"]
 |Question | After building our Docker image, how do we use it to **run containers**?
-| | *Enter your response here...*
+| | docker run -d res/musician piano
 |Question | How do we get the list of all **running containers**?
 | | docker ps -a
 |Question | How do we **stop/kill** one running container?
 | | docker stop [CONTAINER_NAME]
 |Question | How can we check that our running containers are effectively sending UDP datagrams?
-| | with wireshark ?
+| | with wireshark ? -> with filter : udp.port == 2205        ip.addr == 239.240.241.255
 
 
 ## Task 4: implement an "auditor" Node.js application
@@ -163,7 +163,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group?
 | | with socket.bind()
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**? 
-| | *Enter your response here...*
+| | var musicians = new Map musicians.set(uuid, value); musicians.get(uuid); musicians.delete(uuid);
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting? 
 | | https://momentjs.com/
 |Question | When and how do we **get rid of inactive players**? 
@@ -177,8 +177,31 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic
 | ---  | ---
 |Question | How do we validate that the whole system works, once we have built our Docker image?
-| | *Enter your response here...*
+| | start the validate.sh script with Docker Terminal
 
+
+## Docker step by step !
+```
+#on crée l'image Docker de l'auditeur
+$ cd image-auditor/
+$ docker build -t res/auditor .
+
+#on crée l'image Docker du musicien
+$ cd ../image-musician/
+$ docker build -t res/musician .
+
+#on start deux musiciens
+$ docker run -d res/musician piano
+$ docker run -d res/musician flute
+
+#on start l'auditeur
+$ docker run -d -p 2205:2205 res/auditor
+
+#dans un autre terminal
+#on récupére le tableau de musiciens actifs
+telnet 192.168.99.100 2205
+
+```
 
 ## Constraints
 

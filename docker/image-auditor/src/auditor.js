@@ -38,7 +38,7 @@ tcpServer.listen(protocol.PORT);
 console.log("TCP Server now running on port : " + protocol.PORT);
 
 tcpServer.on('connection', function (socket) {
-    checkInstruments()
+    checkInstruments();
     socket.write(JSON.stringify(musicians));
     socket.destroy();
 });
