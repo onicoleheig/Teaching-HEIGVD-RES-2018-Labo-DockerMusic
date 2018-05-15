@@ -153,7 +153,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How do we **stop/kill** one running container?
 | | docker stop [CONTAINER_NAME]
 |Question | How can we check that our running containers are effectively sending UDP datagrams?
-| | with wireshark ? -> with filter : udp.port == 2205        ip.addr == 239.240.241.255
+| | with wireshark ? -> with filter : <br/> udp.port == 2205 <br/> ip.addr == 239.240.241.255
 
 
 ## Task 4: implement an "auditor" Node.js application
@@ -169,7 +169,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | When and how do we **get rid of inactive players**? 
 | | Delete them from the array ?
 |Question | How do I implement a **simple TCP server** in Node.js? 
-| | var tcpServer = net.createServer(); tcpServer.listen(protocol.PORT);...
+| | var tcpServer = net.createServer(); <br/> tcpServer.listen(protocol.PORT);...
 
 
 ## Task 5: package the "auditor" app in a Docker image
@@ -182,23 +182,23 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 
 ## Docker step by step !
 ```
-#on crée l'image Docker de l'auditeur
+#create auditor Docker image
 $ cd image-auditor/
 $ docker build -t res/auditor .
 
-#on crée l'image Docker du musicien
+#create musician Docker image
 $ cd ../image-musician/
 $ docker build -t res/musician .
 
-#on start deux musiciens
+#start created musicians
 $ docker run -d res/musician piano
 $ docker run -d res/musician flute
 
-#on start l'auditeur
+#start auditor
 $ docker run -d -p 2205:2205 res/auditor
 
-#dans un autre terminal
-#on récupére le tableau de musiciens actifs
+#on another terminal
+#connect to TCP server and get the active musicians array
 telnet 192.168.99.100 2205
 
 ```
